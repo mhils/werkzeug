@@ -962,9 +962,9 @@ def is_byte_range_valid(start, stop, length):
         return length is None or length >= 0
     elif length is None:
         return 0 <= start < stop
-    elif start >= stop:
+    elif stop < start:
         return False
-    return 0 <= start < length
+    return 0 <= start <= length
 
 
 # circular dependency fun
